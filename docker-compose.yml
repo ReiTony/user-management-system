@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=reitony
+      - DATABASE_PASSWORD=interviewtest
+      - DATABASE_NAME=dev_db
+      - JWT_SECRET=01481d621e637e4459bd9da4e542739d1cdcfa627bc93380d2ae5e78db371cc3
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: postgres_dev
+    environment:
+      POSTGRES_USER: reitony
+      POSTGRES_PASSWORD: interviewtest
+      POSTGRES_DB: dev_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
