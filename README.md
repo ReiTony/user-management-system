@@ -69,10 +69,10 @@ NODE_ENV=development
 ```
 Note: If you're using Docker, set DATABASE_HOST to db, which matches the name of the database service defined in docker-compose.yml. If you're running PostgreSQL locally without Docker, set DATABASE_HOST to localhost.
 
-#### 4. Start the Application
+#### 4. Start the Application (Setup Docker or Postgresql First)
 
 ```bash
-npm run start
+npm start
 ```
 
 #### 5. Access the Swagger UI
