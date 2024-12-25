@@ -1,10 +1,23 @@
+# Use a lightweight Node.js image
 FROM node:lts-alpine
-ENV NODE_ENV=production
+
+# Set the working directory
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application files
 COPY . .
+
+# Build the NestJS application
+RUN npm run build
+
+# Expose the application port
 EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
-CMD ["npm", "start"]
+
+# Run the built application
+CMD ["node", "dist/main"]

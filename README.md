@@ -59,7 +59,7 @@ Create a `.env` file and add the following:
 
 ```
 PORT=3000
-DATABASE_HOST=localhost
+DATABASE_HOST=db # Must match the service name in docker-compose.yml
 DATABASE_PORT=5432
 DATABASE_USER=<your-db-user>
 DATABASE_PASSWORD=<your-db-password>
@@ -67,6 +67,7 @@ DATABASE_NAME=<your-db-name>
 JWT_SECRET=<your-jwt-secret>
 NODE_ENV=development
 ```
+Note: If you're using Docker, set DATABASE_HOST to db, which matches the name of the database service defined in docker-compose.yml. If you're running PostgreSQL locally without Docker, set DATABASE_HOST to localhost.
 
 #### 4. Start the Application
 
