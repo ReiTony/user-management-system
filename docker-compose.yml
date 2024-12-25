@@ -11,12 +11,12 @@ services:
       - .:/app
       - /app/node_modules
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_PORT=5432
-      - DATABASE_USER=reitony
-      - DATABASE_PASSWORD=interviewtest
-      - DATABASE_NAME=dev_db
-      - JWT_SECRET=01481d621e637e4459bd9da4e542739d1cdcfa627bc93380d2ae5e78db371cc3
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - db
 
@@ -24,9 +24,9 @@ services:
     image: postgres
     container_name: postgres_dev
     environment:
-      POSTGRES_USER: reitony
-      POSTGRES_PASSWORD: interviewtest
-      POSTGRES_DB: dev_db
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
     ports:
       - '5432:5432'
     volumes:
