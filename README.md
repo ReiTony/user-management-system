@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **User Management System** is a server-side application built using the [NestJS](https://nestjs.com) framework. It provides robust user authentication, CSRF protection, and a fully documented API using Swagger. This project demonstrates best practices in API development and deployment using modern tools like Docker and PostgreSQL.
+The **User Management System** is a server-side application built using the [NestJS](https://nestjs.com) framework. It provides robust user authentication, CSRF protection, and a fully documented API using Swagger. This project demonstrates best practices in API development and deployment using modern tools like PostgreSQL.
 
 ---
 
@@ -26,7 +26,6 @@ The **User Management System** is a server-side application built using the [Nes
 - **ORM**: TypeORM
 - **Authentication**: JWT
 - **API Documentation**: Swagger
-- **DevOps**: Docker, Docker Compose
 
 ---
 
