@@ -136,6 +136,31 @@ The application will be accessible at:
 ```
 http://localhost:3000
 ```
+## Configuring PostgreSQL Locally
+
+If you prefer not to use Docker for PostgreSQL, you can set up PostgreSQL manually on your machine. Follow these steps:
+
+### 1. Install PostgreSQL
+
+Download and install PostgreSQL from [https://www.postgresql.org/](https://www.postgresql.org/).
+
+### 2. Start PostgreSQL
+
+Ensure the PostgreSQL service is running.
+
+### 3. Create a Database
+
+Open the PostgreSQL shell or a GUI tool (e.g., pgAdmin) and create a database:
+```
+CREATE DATABASE your_db_name;
+```
+### 4. Update .env File:
+
+Use the configuration provided for local PostgreSQL in the .env example above.
+
+### 5. Run the Application:
+
+Follow the steps in "Start the Application" above.
 
 ---
 
