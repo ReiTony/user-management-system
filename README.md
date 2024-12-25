@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **User Management System** is a server-side application built using the [NestJS](https://nestjs.com) framework. It provides robust user authentication, CSRF protection, and a fully documented API using Swagger. This project demonstrates best practices in API development and deployment using modern tools like Docker and PostgreSQL.
+The **User Management System** is a server-side application built using the [NestJS](https://nestjs.com) framework. It provides robust user authentication, CSRF protection, and a fully documented API using Swagger. This project demonstrates best practices in API development and deployment using modern tools like PostgreSQL.
 
 ---
 
@@ -26,7 +26,6 @@ The **User Management System** is a server-side application built using the [Nes
 - **ORM**: TypeORM
 - **Authentication**: JWT
 - **API Documentation**: Swagger
-- **DevOps**: Docker, Docker Compose
 
 ---
 
@@ -36,10 +35,10 @@ The **User Management System** is a server-side application built using the [Nes
 
 - **Node.js** (v16 or later)
 - **npm** (v8 or later)
-- **Docker** and **Docker Compose**
+- **PostgreSQL**
 
 ### Setup Instructions
-#### IMPT: Make Sure to run VS Code in administrator
+
 #### 1. Clone the Repository
 
 ```bash
@@ -59,7 +58,7 @@ Create a `.env` file and add the following:
 
 ```
 PORT=3000
-DATABASE_HOST=db # Must match the service name in docker-compose.yml
+DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USER=<your-db-user>
 DATABASE_PASSWORD=<your-db-password>
@@ -67,18 +66,24 @@ DATABASE_NAME=<your-db-name>
 JWT_SECRET=<your-jwt-secret>
 NODE_ENV=development
 ```
-Note: If you're using Docker, set DATABASE_HOST to db, which matches the name of the database service defined in docker-compose.yml. If you're running PostgreSQL locally without Docker, set DATABASE_HOST to localhost.
 
-#### 4. Start the Application
-
+#### 4. Set Up PostgreSQL
+1. Install PostgreSQL: Download and install PostgreSQL from https://www.postgresql.org/download/.
+2. Create a Database: Open the PostgreSQL shell or a GUI tool (e.g., pgAdmin) and create a database:
 ```bash
-npm run start
+CREATE DATABASE your_db_name;
+CREATE USER your_db_user WITH PASSWORD 'your_db_password';
+GRANT ALL PRIVILEGES ON DATABASE your_db_name TO your_db_user;
 ```
 
-#### 5. Access the Swagger UI
+#### 5.  Start the Application
 
+```
+npm run start
+
+```
+#### 6.  Start the Application
 Once the application is running, access the API documentation at:
-
 ```
 http://localhost:3000/api-docs
 ```
@@ -120,50 +125,6 @@ npm run test
 
 ---
 
-## Docker Deployment
-### No Need to Install PostgreSQL Manually
-Docker Compose will automatically set up a PostgreSQL container for you. Simply run the following commands to start the application and database. The PostgreSQL service is fully configured in the docker-compose.yml file, so there's no need to install PostgreSQL locally.
-### 1. Build and Start Containers
-
-```bash
-docker-compose up --build
-```
-
-### 2. Access the Application
-
-The application will be accessible at:
-
-```
-http://localhost:3000
-```
-## Configuring PostgreSQL Locally
-
-If you prefer not to use Docker for PostgreSQL, you can set up PostgreSQL manually on your machine. Follow these steps:
-
-### 1. Install PostgreSQL
-
-Download and install PostgreSQL from [https://www.postgresql.org/](https://www.postgresql.org/).
-
-### 2. Start PostgreSQL
-
-Ensure the PostgreSQL service is running.
-
-### 3. Create a Database
-
-Open the PostgreSQL shell or a GUI tool (e.g., pgAdmin) and create a database:
-```
-CREATE DATABASE your_db_name;
-```
-### 4. Update .env File:
-
-Use the configuration provided for local PostgreSQL in the .env example above.
-
-### 5. Run the Application:
-
-Follow the steps in "Start the Application" above.
-
----
-
 ## Security Best Practices
 
 - **Helmet**: Secures HTTP headers.
@@ -175,7 +136,6 @@ Follow the steps in "Start the Application" above.
 - [NestJS Documentation](https://docs.nestjs.com)
 - [Swagger Documentation](https://swagger.io/docs/)
 - [TypeORM Documentation](https://typeorm.io/)
-- [Docker Documentation](https://docs.docker.com/)
 
 ## License
 
