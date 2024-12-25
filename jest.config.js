@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './.env.test' });
+require('dotenv').config({ path: './test/.env.test' });
 module.exports = {
   testEnvironment: 'node',
   moduleFileExtensions: ['js', 'json', 'ts'],
