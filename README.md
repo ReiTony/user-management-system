@@ -120,9 +120,8 @@ npm run test
 ---
 
 ## Docker Deployment
-
-Use Docker Compose to set up and run the application along with PostgreSQL:
-
+### No Need to Install PostgreSQL Manually
+Docker Compose will automatically set up a PostgreSQL container for you. Simply run the following commands to start the application and database. The PostgreSQL service is fully configured in the docker-compose.yml file, so there's no need to install PostgreSQL locally.
 ### 1. Build and Start Containers
 
 ```bash
