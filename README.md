@@ -117,7 +117,7 @@ http://localhost:3000/api-docs
 
 ## Testing
 
-Run tests to ensure the application is functioning correctly. An `env.test` file is also available for test-specific configurations.
+Run tests to ensure the application is functioning correctly. An `env.test` file is also available in the test for test-specific configurations.
 
 ```bash
 npm run test
